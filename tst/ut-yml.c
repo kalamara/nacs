@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <stdarg.h>
 #include <stdio.h>
+#include <yaml.h>
 
 #include "CUnit/Basic.h"
 #include "CUnit/Console.h"
@@ -10,7 +11,7 @@
 #include "config.h"
 #include "schema.h"
 
-#include "ut-conf.h"
+#include "ut-yml.h"
 
 #define TRUE 1
 #define FALSE 0
@@ -38,7 +39,8 @@ int clean_suite_failure (void)
 
 int main ()
 {
-  CU_pSuite           suite_conf = NULL;
+  CU_pSuite           suite_yml = NULL;
+
   
   /* initialize the CUnit test registry */
   if (CUE_SUCCESS != CU_initialize_registry ())
@@ -46,12 +48,12 @@ int main ()
 
   /* add a suite to the registry */
   
-  suite_conf = CU_add_suite ("configurator library core", 
+  suite_yml = CU_add_suite ("yml de/serialization", 
                            init_suite_success,
                            clean_suite_success);
   
     
-  if(NULL == suite_conf) 
+  if(NULL == suite_yml) 
   {
     CU_cleanup_registry ();
     return CU_get_error ();
@@ -60,11 +62,8 @@ int main ()
  // start_thread();
   
   //configurator
-  if(ADD_TEST(suite_conf, ut_conf) 
-  || ADD_TEST(suite_conf, ut_store)
-  || ADD_TEST(suite_conf, ut_get)
-  || ADD_TEST(suite_conf, ut_set)
-  || ADD_TEST(suite_conf, ut_copy)
+  if(ADD_TEST(suite_yml, ut_save)
+  || ADD_TEST(suite_yml, ut_load)
   ){
 	CU_cleanup_registry ();
         return CU_get_error ();

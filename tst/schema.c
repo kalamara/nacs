@@ -5,6 +5,73 @@
  *@brief configuration schema 
 */
 
+struct entry SimSchema[N_SIM_VARS] = {
+    {
+        .type_tag = ENTRY_STR,
+        .name = "INPUT",
+        .e = {
+            .scalar_str = "simin.txt" 
+        }          
+    },
+    {
+        .type_tag = ENTRY_STR,
+        .name = "OUTPUT",
+        .e = {
+            .scalar_str = "simout.txt"
+        }          
+    },
+};
+
+struct entry SubdevSchema[N_SUBDEV_VARS] = {
+    {
+        .type_tag = ENTRY_INT,
+        .name = "IN",
+        .e = {
+            .scalar_int = -1 
+        }          
+    },
+    {
+        .type_tag = ENTRY_INT,
+        .name = "OUT",
+        .e = {
+            .scalar_int = -1
+        }          
+    },
+    {
+        .type_tag = ENTRY_INT,
+        .name = "ADC",
+        .e = {
+            .scalar_int = -1 
+        }          
+    },
+    {
+        .type_tag = ENTRY_INT,
+        .name = "DAC",
+        .e = {
+            .scalar_int = -1
+        }          
+    },
+};
+
+
+
+struct entry ComediSchema[N_COMEDI_VARS] = {
+    {
+        .type_tag = ENTRY_INT,
+        .name = "FILE",
+        .e = {
+            .scalar_int = 0 
+        }          
+    },
+    {
+        .type_tag = ENTRY_MAP,
+        .name = "SUBDEV",
+        .e = {
+            .conf = NULL
+        }          
+    },
+};
+    
 struct entry HwSchema[N_HW_VARS] = {
     {
         .type_tag = ENTRY_STR,

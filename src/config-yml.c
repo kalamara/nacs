@@ -410,7 +410,7 @@ static void emit_entry(const entry_t entry, yaml_emitter_t *emitter) {
     
         return;
     }
-    LOGGER("string %s len %ld", entry->name, strlen(entry->name));
+    //LOGGER("string %s len %ld", entry->name, strlen(entry->name));
     
     int r = yaml_scalar_event_initialize(
     	&evt,
@@ -477,16 +477,17 @@ static void emit_entry(const entry_t entry, yaml_emitter_t *emitter) {
     		r = yaml_emitter_emit(emitter, &evt);
     		if(r == 0) { log_yml_event(evt); }
     		if(entry->e.conf){
-    		        iter = *(entry->e.conf->map);
-			while(i < entry->e.conf->size){
-			    if(iter != NULL) {
-				    emit_entry(iter, emitter);  
-				}
-				iter = (entry->e.conf->map)[++i];
-			}	
+    		    iter = *(entry->e.conf->map);
+			    while(i < entry->e.conf->size){
+			        if(iter != NULL) {
+				        emit_entry(iter, emitter);  
+				    }
+				    iter = (entry->e.conf->map)[++i];
+			    }	
+			}
 			yaml_mapping_end_event_initialize(&evt); 	
-            		yaml_emitter_emit(emitter, &evt); 
-                }
+            yaml_emitter_emit(emitter, &evt); 
+            
     		//log_yml_event(evt);
 			break;
 		
@@ -682,7 +683,8 @@ char * serialize_config(const config_t conf) {
         
         return NULL;    
     }
-    char * buf = (char *)malloc(CONF_STR);       
+    char * buf = (char *)malloc(CONF_STR);  
+    memset(buf,0,CONF_STR);     
     yaml_emitter_set_output_string(
         &emitter,
   	    ( yaml_char_t *) buf,

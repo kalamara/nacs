@@ -16,7 +16,7 @@ link_directories(
 )	
 
 ADD_LIBRARY(${PROJECT_NAME}-yml
-    STATIC 
+    SHARED 
     include/config.h
     src/config.c
     src/config-yml.c
@@ -39,4 +39,17 @@ target_link_libraries(
     test_core PUBLIC ${CUNIT} -lgcov    
 )	
 
+add_executable(test_yml
+    ${PROJECT_SOURCE_DIR}/include/config.h
+    ${PROJECT_SOURCE_DIR}/tst/schema.h
+ 	${PROJECT_SOURCE_DIR}/tst/schema.c
+ 	${PROJECT_SOURCE_DIR}/tst/ut-yml.h
+	${PROJECT_SOURCE_DIR}/tst/ut-yml.c
+)
 
+add_dependencies(test_yml yacs-yml)
+
+target_link_libraries(
+    test_yml PUBLIC ${CUNIT} ${YAML} -lyacs-yml -lgcov 
+   
+)
