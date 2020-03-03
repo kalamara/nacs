@@ -9,7 +9,7 @@ Currently YAML files are supported, using [libyaml](https://github.com/yaml/liby
 
 # Usage
 Link the library against your application, and use the api in [config.h](https://github.com/kalamara/yacs/blob/master/src/config.h)  to de/serialize configurations.
-Refer to the Doxygen docs and the [test examples](https://github.com/kalamara/yacs/tree/master/tst) for more information.
+Refer to the [Doxygen docs](https://github.com/kalamara/yacs/blob/master/Doxyfile) and the [test examples](https://github.com/kalamara/yacs/tree/master/tst) for more information.
 
 # Structure
 The main configuration structure config_t is a vector of different types of possible entries:
