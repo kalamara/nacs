@@ -20,7 +20,7 @@ Integer values
 age:  42
 ```
 
-# STRING
+# STR
 Plain character strings
 
 ```yaml
@@ -29,7 +29,7 @@ name:  "elvis"
 another_name:  melvin 
 ```
 
-# SEQUENCE 
+# SEQ
 An indexed sequence of fixed size of blocks of data which follow the same format, in key / value pairs.
 A valid sequence begins with an integer which is the size, and is followed by an array of blocks of pairs where the set of keys is the same for each block. 
 Each block has two mandatory entries, ID (string) which is the name of the block, and INDEX (integer) which is the zero-based index of the block in the sequence. 
