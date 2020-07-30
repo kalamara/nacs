@@ -1,6 +1,6 @@
 # NACS
 
-Not another Configuration System
+Not Another Configuration System
 
 
 libnacs is a C library for managing configuration files.
