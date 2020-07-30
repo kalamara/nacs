@@ -1,5 +1,7 @@
 # NaCl
+(Sodium Chloride)
 Not another Configuration Library
+
 
 libNacl is a C library for managing configuration files.
 
