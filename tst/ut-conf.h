@@ -118,10 +118,17 @@ void ut_set(){
 //garbage in garbage out
     config_t res = set_numeric_entry(-1, 2, NULL);
     CU_ASSERT_PTR_NULL(res);
+    res = set_string_entry(-1, NULL, NULL);
+    CU_ASSERT_PTR_NULL(res);    
+    
 //numeric happy path    
     res = set_numeric_entry(CONFIG_STEP, 2, conf);
     int step = get_numeric_entry(CONFIG_STEP, res);
     CU_ASSERT(step == 2);
+//string happy path    
+    res = set_string_entry(CONFIG_STATUS, "ERROR", conf);
+    char * status = get_string_entry(CONFIG_STATUS, res);
+    CU_ASSERT_STRING_EQUAL(status, "ERROR");    
 //more garbage in garbage out    
     res = set_recursive_entry(CONFIG_HW, NULL, NULL);
     CU_ASSERT_PTR_NULL(res);

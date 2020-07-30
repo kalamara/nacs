@@ -94,6 +94,13 @@ struct sequence default_seq = {
 };
 
 struct entry ConfigSchema[N_CONFIG_VARIABLES] = {
+    {//CONFIG_STATUS,
+         .type_tag = ENTRY_STR,
+         .name = "STATUS",
+         .e = {
+                .scalar_str = "STOPPED"
+         }
+    },
     {//CONFIG_STEP,
          .type_tag = ENTRY_INT,
          .name = "STEP",

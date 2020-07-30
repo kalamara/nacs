@@ -216,6 +216,15 @@ config_t set_numeric_entry(int key, int val, config_t conf);
 char * get_string_entry(int key, const config_t conf);
 
 /**
+ * @brief set string config entry by key
+ * @param the key
+ * @param the string
+ * @param the configuration
+ * @return the updated configuration, or NULL
+ */
+config_t set_string_entry(int key, const char * val, config_t conf);
+
+/**
  * @brief get sequence config entry by key
  */
 sequence_t get_sequence_entry(int key, const config_t conf);

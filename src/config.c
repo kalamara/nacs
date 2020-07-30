@@ -157,6 +157,20 @@ char * get_string_entry(int key, const config_t conf){
     }    
 }
 
+config_t set_string_entry(int key, const char * val, config_t conf){
+    config_t c = conf;
+    
+    entry_t e = get_entry(key, c);
+    if(!e){
+    
+        return NULL;
+    }
+    e->e.scalar_str = strdup_r(e->e.scalar_str, val);
+    conf->map[key] = e;
+    
+    return c;
+}
+
 sequence_t get_sequence_entry(int key, const config_t conf){
     entry_t e = get_entry(key, conf);
     if(e && e->type_tag == ENTRY_SEQ){
