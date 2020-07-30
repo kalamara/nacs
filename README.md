@@ -8,8 +8,8 @@ It loosely follows the yml / json format, allowing for de/serialization of human
 Currently YAML files are supported, using [libyaml](https://github.com/yaml/libyaml) for low level I/O, with plans for JSON and CBOR.
 
 # Usage
-Link the library against your application, and use the api in [config.h](https://github.com/kalamara/yacs/blob/master/src/config.h)  to de/serialize configurations.
-Refer to the Doxygen docs and the [test examples](https://github.com/kalamara/yacs/tree/master/tst) for more information.
+Link the library against your application, and use the api in [config.h](https://github.com/kalamara/yacs/blob/master/include/config.h)  to de/serialize configurations.
+Refer to the [Doxygen docs](https://github.com/kalamara/yacs/blob/master/Doxyfile) and the [test examples](https://github.com/kalamara/yacs/tree/master/tst) for more information.
 
 # Structure
 The main configuration structure config_t is a vector of different types of possible entries:
@@ -20,7 +20,7 @@ Integer values
 age:  42
 ```
 
-# STRING
+# STR
 Plain character strings
 
 ```yaml
@@ -29,7 +29,7 @@ name:  "elvis"
 another_name:  melvin 
 ```
 
-# SEQUENCE 
+# SEQ
 An indexed sequence of fixed size of blocks of data which follow the same format, in key / value pairs.
 A valid sequence begins with an integer which is the size, and is followed by an array of blocks of pairs where the set of keys is the same for each block. 
 Each block has two mandatory entries, ID (string) which is the name of the block, and INDEX (integer) which is the zero-based index of the block in the sequence. 
