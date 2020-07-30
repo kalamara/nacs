@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 2.8)
 
 set(CMAKE_BUILD_TYPE Debug)
 
-project("yacs")
+project("nacl")
 
 find_library(CUNIT cunit)
 find_library(YAML yaml)
@@ -47,9 +47,9 @@ add_executable(test_yml
 	${PROJECT_SOURCE_DIR}/tst/ut-yml.c
 )
 
-add_dependencies(test_yml yacs-yml)
+add_dependencies(test_yml nacl-yml)
 
 target_link_libraries(
-    test_yml PUBLIC ${CUNIT} ${YAML} -lyacs-yml -lgcov 
+    test_yml PUBLIC ${CUNIT} ${YAML} -lnacl-yml -lgcov 
    
 )
