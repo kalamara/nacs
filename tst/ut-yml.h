@@ -102,6 +102,7 @@ void ut_save(){
     char * output = serialize_config( conf);    
     char * expected = "\
 ---\n\
+STATUS: STOPPED\n\
 STEP: 100\n\
 HW: !!map {}\n\
 PROGRAM:\n\
