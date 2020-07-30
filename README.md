@@ -3,15 +3,15 @@
 Not another Configuration System
 
 
-libNacl is a C library for managing configuration files.
+libnacs is a C library for managing configuration files.
 
 It loosely follows the yml / json format, allowing for de/serialization of human readable files to/from a dynamic structure in memory.
 
 Currently YAML files are supported, using [libyaml](https://github.com/yaml/libyaml) for low level I/O, with plans for JSON and CBOR.
 
 # Usage
-Link the library against your application, and use the api in [config.h](https://github.com/kalamara/nacl/blob/master/include/config.h)  to de/serialize configurations.
-Refer to the [Doxygen docs](https://github.com/kalamara/yacs/blob/master/Doxyfile) and the [test examples](https://github.com/kalamara/nacl/tree/master/tst) for more information.
+Link the library against your application, and use the api in [config.h](https://github.com/kalamara/nacs/blob/master/include/config.h)  to de/serialize configurations.
+Refer to the [Doxygen docs](https://github.com/kalamara/yacs/blob/master/Doxyfile) and the [test examples](https://github.com/kalamara/nacs/tree/master/tst) for more information.
 
 # Structure
 The main configuration structure config_t is a vector of different types of possible entries:
