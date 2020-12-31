@@ -1,6 +1,6 @@
 
 ## Not Another Configuration System
-## Copyright (C) 2020, Antonis Kalamaras (kalamara AT ceid DOT upatras DOT gr)
+## Copyright (C) 2020-2021, Antonis Kalamaras (kalamara AT ceid DOT upatras DOT gr)
 
 ## This program is free software: you can redistribute it and/or modify
 ## it under the terms of the GNU General Public License as published by
