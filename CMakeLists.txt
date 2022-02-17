@@ -16,7 +16,7 @@
 ## along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 3.2)
 
 set(CMAKE_BUILD_TYPE Debug)
 
@@ -43,7 +43,7 @@ ADD_LIBRARY(${PROJECT_NAME}-yml
 target_link_libraries(
     ${PROJECT_NAME}-yml PUBLIC ${YAML}    
 )	
-    
+if(CUNIT)    
 add_executable(test_core
     ${PROJECT_SOURCE_DIR}/include/config.h
     ${PROJECT_SOURCE_DIR}/src/config.c
@@ -53,6 +53,8 @@ add_executable(test_core
 	${PROJECT_SOURCE_DIR}/tst/ut-conf.c
 )
 
+
+message("building tests...")
 target_link_libraries(
     test_core PUBLIC ${CUNIT} -lgcov    
 )	
@@ -71,3 +73,4 @@ target_link_libraries(
     test_yml PUBLIC ${CUNIT} ${YAML} -l${PROJECT_NAME}-yml -lgcov 
    
 )
+endif(CUNIT)
